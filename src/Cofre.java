@@ -45,22 +45,36 @@ class Cofre{
 
 
     }
-    public void  tranferirgaleões(double valorReceber, double valorTranferir){
-        if(valorReceber<= saldo){
-            saldo-= valorTranferir;
-            historicoTransacoes.add("Tranferencia de");
-
-        } else{
-            historicoTransacoes.add("Tentativa de saque falhou! Saldo insuficiente.");
-
+    public boolean tranferirGaleoes(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+            historicoTransacoes.add("Transferência realizada: -" + valor + " galeões.");
+            return true; 
+        } else {
+            historicoTransacoes.add("Tentativa de transferência falhou! Saldo insuficiente.");
+            return false; 
         }
-           
-
-            
-
-        
-
     }
+
+
+    public void receberGaleoes(double valor) {
+        saldo += valor;
+        historicoTransacoes.add("Transferência recebida: +" + valor + " galeões.");
+    }
+
+    
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public int getNumeroCofre() {
+        return numerocofre;
+    }
+
+    public String getNomeBruxo() {
+        return nomebruxo;
+    }
+
     public void listarTransacoes(int cofreh) {
         System.out.println("\nHistórico de Transações do Cofre " + cofreh + ":");
         for (String transacao : historicoTransacoes) {

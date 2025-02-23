@@ -20,38 +20,41 @@ class BancoGringotes{
                 }
     }
     public void Transacoes(){}
-    public void buscarCofre(int numerobuscar) {
-        if (cofres.isEmpty()) {
-            System.out.println("Não há nenhum cofre!");
-        } else {
-            boolean encontrado = false;
-            for (Cofre cofre : cofres) {
-                if (cofre.numerocofre == numerobuscar) {
-                    System.out.println("Cofre encontrado. " +
-                                       "Nome do bruxo: " + cofre.nomebruxo + 
-                                       ", Número do cofre: " + cofre.numerocofre + 
-                                       ", Saldo Disponível: " + cofre.saldo);
-                    encontrado = true;
-                    break; 
-                }
-            }
-            if (!encontrado) {
-                System.out.println("Cofre não encontrado.");
+    public Cofre buscarCofre(int numerobuscar) {
+        for (Cofre cofre : cofres) {
+            if (cofre.getNumeroCofre() == numerobuscar) {
+                return cofre; 
             }
         }
-    }
-    
-    public void Transferir(BancoGringotes banco) {
-        Scanner sc = new Scanner(System.in);
-    
-        System.out.print("Insira o número do cofre que deseja realizar o saque para transferência:\n");
-        int numeroTransferir = sc.nextInt();
-        banco.buscarCofre(numeroTransferir); 
-        System.out.print("Agora informe o numero do banco para qual deseja fazer a tranferencia:\n");
-        int numeroReceber=sc.nextInt();
-        banco.buscarCofre(numeroReceber);
-        System.out.println("Agora indique o valor da tranferencia:\n");
-        double valor=sc.nextDouble();
+        return null; 
     }
 
-}
+    
+    public void Transferir() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Qual o valor da transferência:");
+        double valor = sc.nextDouble();
+
+        System.out.println("Insira o número do cofre de origem (saque):");
+        int numeroOrigem = sc.nextInt();
+        Cofre cofreOrigem = buscarCofre(numeroOrigem);
+
+        System.out.println("Insira o número do cofre de destino (depósito):");
+        int numeroDestino = sc.nextInt();
+        Cofre cofreDestino = buscarCofre(numeroDestino);
+
+       
+        if (cofreOrigem == null || cofreDestino == null) {
+            System.out.println("Um dos cofres não foi encontrado. Verifique os números informados.");
+            return;
+        }
+
+    
+        if (cofreOrigem.tranferirGaleoes(valor)) {
+            cofreDestino.receberGaleoes(valor);
+            System.out.println("Transferência realizada com sucesso!");
+        } else {
+            System.out.println("Transferência falhou. Saldo insuficiente no cofre de origem.");
+        }
+    }}
