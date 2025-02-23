@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 class BancoGringotes{
     private ArrayList<Cofre> cofres= new ArrayList<>();
@@ -25,7 +26,7 @@ class BancoGringotes{
                 }else{
                     for (int idx = 0; idx < cofres.size(); idx++) {
                         if(buscar.numerocofre==numerobuscar){
-                            //buscar.depositar(valor);
+            
                             System.out.println("Cofre encontrado." + "Nome do bruxo:" + buscar.nomebruxo + "Numero do cofre:" + buscar.numerocofre + "Saldo Disponivel:" + buscar.saldo);
                 
                         }
@@ -35,6 +36,12 @@ class BancoGringotes{
                     }
     }
 }
-public void Transferir()
+public void Transferir(double valor){
+    Scanner sc= new Scanner(System.in);
+
+    System.out.print("Insira o numero do cofre que deseja realizar o saque para tranferencia:\n");
+    int numeroTransferir= sc.nextInt();
+
+}
 
 }
