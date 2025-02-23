@@ -19,7 +19,12 @@ class BancoGringotes{
                     }
                 }
     }
-    public void Transacoes(){}
+    public void listarTransacoes(Cofre cofre) {
+        System.out.println("\nHistórico de Transações do Cofre ");
+        for (String transacao : cofre.historicoTransacoes) {
+            System.out.println(transacao);
+        }
+    }
     public Cofre buscarCofre(int numerobuscar) {
         for (Cofre cofre : cofres) {
             if (cofre.getNumeroCofre() == numerobuscar) {

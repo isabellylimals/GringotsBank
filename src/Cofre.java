@@ -75,10 +75,5 @@ class Cofre{
         return nomebruxo;
     }
 
-    public void listarTransacoes(int cofreh) {
-        System.out.println("\nHistórico de Transações do Cofre " + cofreh + ":");
-        for (String transacao : historicoTransacoes) {
-            System.out.println(transacao);
-        }
-    }
+   
 }
