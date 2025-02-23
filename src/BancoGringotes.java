@@ -19,14 +19,14 @@ class BancoGringotes{
                 }
     }
     public void Transacoes(){}
-    public void buscarCofre(Cofre buscar, int numerobuscar, double valor){
+    public void buscarCofre(Cofre buscar, int numerobuscar){
         if(cofres.isEmpty()){
             System.out.println("Não há nenhum cofre!");
                 }else{
                     for (int idx = 0; idx < cofres.size(); idx++) {
                         if(buscar.numerocofre==numerobuscar){
-                            buscar.depositar(valor);
-                            System.out.println("Depósito realizado no Cofre " + valor);
+                            //buscar.depositar(valor);
+                            System.out.println("Cofre encontrado." + "Nome do bruxo:" + buscar.nomebruxo + "Numero do cofre:" + buscar.numerocofre + "Saldo Disponivel:" + buscar.saldo);
                 
                         }
                         else{
@@ -34,4 +34,7 @@ class BancoGringotes{
                         }
                     }
     }
-}}
+}
+public void Transferir()
+
+}
