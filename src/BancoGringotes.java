@@ -8,16 +8,16 @@ class BancoGringotes{
         cofres.add(co);
         System.out.println("Cofre adicionado com sucesso!");
     }
-    public void Listarcofres(Cofre lista){
-        if(cofres.isEmpty()){
+    public void ListarCofres() {
+        if (cofres.isEmpty()) {
             System.out.println("Não há nenhum cofre!");
-                }else{
-                    for (int idx = 0; idx < cofres.size(); idx++) {
-                             
-                        System.out.println("Nome do bruxo:" + lista.nomebruxo + "Numero do cofre:"+ lista.numerocofre + "Saldo disponivel: %.2f" + lista.saldo);
-                        
-                    }
-                }
+        } else {
+            for (Cofre cofre : cofres) {
+                System.out.println("Nome do bruxo: " + cofre.nomebruxo + 
+                                   ", Número do cofre: " + cofre.numerocofre + 
+                                   ", Saldo disponível: " + String.format("%.2f", cofre.saldo));
+            }
+        }
     }
     public void listarTransacoes(Cofre cofre) {
         System.out.println("\nHistórico de Transações do Cofre ");

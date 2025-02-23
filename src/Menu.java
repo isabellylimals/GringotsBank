@@ -5,6 +5,7 @@ public class Menu {
     public void menu() {
         Scanner sc = new Scanner(System.in);
         BancoGringotes banco= new BancoGringotes();
+        
         String escolha;
 
         do {
@@ -46,6 +47,8 @@ public class Menu {
                     break;
                 case "2":
                     System.out.println("Listar cofres selecionado.");
+                    
+                    banco.ListarCofres();
                     break;
                 case "3":
                     System.out.println("Buscar cofre selecionado.");
