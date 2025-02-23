@@ -4,6 +4,7 @@ public class Menu {
 
     public void menu() {
         Scanner sc = new Scanner(System.in);
+        BancoGringotes banco= new BancoGringotes();
         String escolha;
 
         do {
@@ -32,6 +33,16 @@ public class Menu {
             switch (escolha) {
                 case "1":
                     System.out.println("Adicionar cofre selecionado.");
+                    System.out.print("Digite o nome do bruxo: ");
+                    String nomebruxo = sc.nextLine();
+                    System.out.print("Digite o número do cofre: ");
+                    int numerocofre = sc.nextInt();
+                    System.out.print("Digite o saldo inicial do cofre: ");
+                    double saldo = sc.nextDouble();
+                    sc.nextLine(); 
+
+                    Cofre cofre = new Cofre(nomebruxo, numerocofre, saldo);
+                    banco.Criarcofre(cofre);
                     break;
                 case "2":
                     System.out.println("Listar cofres selecionado.");
