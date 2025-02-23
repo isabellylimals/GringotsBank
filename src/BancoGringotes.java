@@ -20,28 +20,38 @@ class BancoGringotes{
                 }
     }
     public void Transacoes(){}
-    public void buscarCofre(Cofre buscar, int numerobuscar){
-        if(cofres.isEmpty()){
+    public void buscarCofre(int numerobuscar) {
+        if (cofres.isEmpty()) {
             System.out.println("Não há nenhum cofre!");
-                }else{
-                    for (int idx = 0; idx < cofres.size(); idx++) {
-                        if(buscar.numerocofre==numerobuscar){
-            
-                            System.out.println("Cofre encontrado." + "Nome do bruxo:" + buscar.nomebruxo + "Numero do cofre:" + buscar.numerocofre + "Saldo Disponivel:" + buscar.saldo);
-                
-                        }
-                        else{
-                            System.out.println("Cofre não encontrado.");
-                        }
-                    }
+        } else {
+            boolean encontrado = false;
+            for (Cofre cofre : cofres) {
+                if (cofre.numerocofre == numerobuscar) {
+                    System.out.println("Cofre encontrado. " +
+                                       "Nome do bruxo: " + cofre.nomebruxo + 
+                                       ", Número do cofre: " + cofre.numerocofre + 
+                                       ", Saldo Disponível: " + cofre.saldo);
+                    encontrado = true;
+                    break; 
+                }
+            }
+            if (!encontrado) {
+                System.out.println("Cofre não encontrado.");
+            }
+        }
     }
-}
-public void Transferir(double valor){
-    Scanner sc= new Scanner(System.in);
-
-    System.out.print("Insira o numero do cofre que deseja realizar o saque para tranferencia:\n");
-    int numeroTransferir= sc.nextInt();
-
-}
+    
+    public void Transferir(BancoGringotes banco) {
+        Scanner sc = new Scanner(System.in);
+    
+        System.out.print("Insira o número do cofre que deseja realizar o saque para transferência:\n");
+        int numeroTransferir = sc.nextInt();
+        banco.buscarCofre(numeroTransferir); 
+        System.out.print("Agora informe o numero do banco para qual deseja fazer a tranferencia:\n");
+        int numeroReceber=sc.nextInt();
+        banco.buscarCofre(numeroReceber);
+        System.out.println("Agora indique o valor da tranferencia:\n");
+        double valor=sc.nextDouble();
+    }
 
 }
