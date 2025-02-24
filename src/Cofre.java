@@ -74,4 +74,6 @@ class Cofre{
     public String getNomeBruxo() {
         return nomebruxo;
     }
+
+  
     }

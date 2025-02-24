@@ -14,8 +14,8 @@ class BancoGringotes{
         } else {
             for (Cofre cofre : cofres) {
                 System.out.println("Nome do bruxo: " + cofre.nomebruxo + 
-                                   ", Número do cofre: " + cofre.numerocofre + 
-                                   ", Saldo disponível: " + String.format("%.2f", cofre.saldo));
+                                   ", \nNúmero do cofre: " + cofre.numerocofre + 
+                                   ", \nSaldo disponível: " + String.format("%.2f", cofre.saldo));
             }
         }
     }
@@ -65,4 +65,15 @@ class BancoGringotes{
         } else {
             System.out.println("Transferência falhou. Saldo insuficiente no cofre de origem.");
         }
-    }}
+    }
+    public int verificarNumero(int numero) {
+        for (Cofre cofre : cofres) {
+            if (cofre.numerocofre == numero) {
+              
+                return 1; 
+            }
+        }
+        return 0; 
+    }
+    
+}

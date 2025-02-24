@@ -9,10 +9,10 @@ public class Menu {
         String escolha;
 
         do {
-            System.out.print("\033[H\033[2J");
+           // System.out.print("\033[H\033[2J");
             System.out.flush();
             System.out.println("=======================================");
-            System.out.println("===== Bem-vindo ao Sistema do Banco Gringotes =====");
+            System.out.println("Bem-vindo ao Sistema do Banco Gringotes");
             System.out.println("=======================================");
             System.out.println("[1] Adicionar cofre");
             System.out.println("[2] Listar cofres");
@@ -36,14 +36,26 @@ public class Menu {
                     System.out.println("Adicionar cofre selecionado.");
                     System.out.print("Digite o nome do bruxo: ");
                     String nomebruxo = sc.nextLine();
-                    System.out.print("Digite o número do cofre: ");
-                    int numerocofre = sc.nextInt();
+                    
+                    int numerocofre;
+                    do {
+                        System.out.print("Digite o número do cofre: ");
+                        numerocofre = sc.nextInt();
+                        sc.nextLine(); 
+                        if (banco.verificarNumero(numerocofre) == 1) {
+                            System.out.println("Esse número de cofre já existe, insira outro.");
+                        } else {
+                            break; 
+                        }
+                    } while (true);
+                    
                     System.out.print("Digite o saldo inicial do cofre: ");
                     double saldo = sc.nextDouble();
-                    sc.nextLine(); 
+                    sc.nextLine();
 
                     Cofre cofre = new Cofre(nomebruxo, numerocofre, saldo);
                     banco.Criarcofre(cofre);
+                    System.out.println("Cofre adicionado com sucesso!");
                     break;
                 case "2":
                     System.out.println("Listar cofres selecionado.");
