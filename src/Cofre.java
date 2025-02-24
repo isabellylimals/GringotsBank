@@ -28,9 +28,10 @@ class Cofre{
         this.saldo=saldo;
         this.historicoTransacoes = new ArrayList<>();
     }
-    public void depositar(double valor) {
+    public  depositar(double valor) {
         saldo += valor;
         historicoTransacoes.add("Depósito de " + valor + " galeões.");
+        
     }
     public Boolean sacar(double valor){
         if (valor <= saldo) {
@@ -41,7 +42,6 @@ class Cofre{
             historicoTransacoes.add("Tentativa de saque falhou! Saldo insuficiente.");
             return false;
         }
-      
 
 
     }
@@ -74,6 +74,4 @@ class Cofre{
     public String getNomeBruxo() {
         return nomebruxo;
     }
-
-   
-}
+    }

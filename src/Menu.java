@@ -52,12 +52,32 @@ public class Menu {
                     break;
                 case "3":
                     System.out.println("Buscar cofre selecionado.");
+                    System.out.print("Qual o numero do cofre que deseja buscar?");
+                    int num= sc.nextInt();
+                    banco.buscarCofre(num);
                     break;
                 case "4":
                     System.out.println("Realizar saque selecionado.");
+                    System.out.print("Digite o número do cofre: ");
+                    numerocofre = sc.nextInt();
+                    System.out.print("Digite o valor a ser sacado: ");
+                    double valorSaque = sc.nextDouble();
+                    sc.nextLine(); 
+
+                    Cofre cofreSaque = banco.buscarCofre(numerocofre);
+                    if (cofreSaque != null) {
+                        if (cofreSaque.sacar(valorSaque)) {
+                            System.out.println("Saque realizado com sucesso.");
+                        } else {
+                            System.out.println("Saldo insuficiente.");
+                        }
+                    } else {
+                        System.out.println("Cofre não encontrado.");
+                    }
                     break;
                 case "5":
-                    System.out.println("Realizar transação selecionado.");
+                    System.out.println("Realizar deposito selecionado.");
+                 
                     break;
                 case "6":
                     System.out.println("Realizar transação entre cofres selecionado.");
