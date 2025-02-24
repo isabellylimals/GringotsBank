@@ -34,10 +34,18 @@ public class Menu {
             switch (escolha) {
                 case "1":
                     System.out.println("Adicionar cofre selecionado.");
-                    System.out.print("Digite o nome do bruxo: ");
-                    String nomebruxo = sc.nextLine();
-                    
-                    int numerocofre;
+
+                    String nomebruxo;
+        do {
+            System.out.print("Digite o nome do bruxo: ");
+            nomebruxo = sc.nextLine();
+            if (!nomebruxo.matches("[a-zA-Z]+")) {
+                System.out.println("Nome inválido. Digite apenas letras.");
+            } else {
+                break;
+            }
+        } while (true);
+        int numerocofre;
                     do {
                         System.out.print("Digite o número do cofre: ");
                         numerocofre = sc.nextInt();
@@ -49,9 +57,21 @@ public class Menu {
                         }
                     } while (true);
                     
-                    System.out.print("Digite o saldo inicial do cofre: ");
-                    double saldo = sc.nextDouble();
-                    sc.nextLine();
+                    double saldo;
+        do {
+            System.out.print("Digite o saldo inicial do cofre: ");
+            while (!sc.hasNextDouble()) {
+                System.out.println("Saldo inválido. Digite um número válido.");
+                sc.next(); 
+            }
+            saldo = sc.nextDouble();
+            sc.nextLine();
+            if (saldo < 0) {
+                System.out.println("Saldo não pode ser negativo. Tente novamente.");
+            } else {
+                break;
+            }
+        } while (true);
 
                     Cofre cofre = new Cofre(nomebruxo, numerocofre, saldo);
                     banco.Criarcofre(cofre);
