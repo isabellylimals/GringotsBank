@@ -18,9 +18,9 @@ public class Menu {
             System.out.println("[2] Listar cofres");
             System.out.println("[3] Buscar cofre");
             System.out.println("[4] Realizar saque");
-            System.out.println("[5] Realizar transação");
+            System.out.println("[5] Realizar deposito");
             System.out.println("[6] Realizar transação entre cofres");
-            System.out.println("[7] Remover cofre");
+            System.out.println("[7] Listar transações");
             System.out.println("[8] Sair do sistema");
             System.out.println("=======================================");
             System.out.print("Escolha uma das opções: ");
@@ -77,13 +77,28 @@ public class Menu {
                     break;
                 case "5":
                     System.out.println("Realizar deposito selecionado.");
+                    System.out.print("Digite o número do cofre: ");
+                    numerocofre = sc.nextInt();
+                    System.out.print("Digite o valor a ser depositado: ");
+                    double valorDeposito = sc.nextDouble();
+                    sc.nextLine(); 
+
+                    Cofre cofreDeposito = banco.buscarCofre(numerocofre);
+                    if (cofreDeposito != null) {
+                        cofreDeposito.depositar(valorDeposito);
+                        System.out.println("Depósito realizado com sucesso.");
+                    } else {
+                        System.out.println("Cofre não encontrado.");
+                    }
                  
                     break;
                 case "6":
                     System.out.println("Realizar transação entre cofres selecionado.");
+                                        banco.Transferir();
                     break;
                 case "7":
-                    System.out.println("Remover cofre selecionado.");
+                    System.out.println("Listar transações selecionado.");
+                    banco.listarTransacoes();
                     break;
                 case "8":
                     System.out.println("Saindo do sistema...");

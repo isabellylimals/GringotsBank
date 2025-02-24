@@ -28,7 +28,7 @@ class Cofre{
         this.saldo=saldo;
         this.historicoTransacoes = new ArrayList<>();
     }
-    public  depositar(double valor) {
+    public void depositar(double valor) {
         saldo += valor;
         historicoTransacoes.add("Depósito de " + valor + " galeões.");
         
