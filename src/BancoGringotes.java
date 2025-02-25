@@ -7,6 +7,7 @@ class BancoGringotes{
     public void Criarcofre(Cofre co){
         cofres.add(co);
         System.out.println("Cofre adicionado com sucesso!");
+        //System.out.print("\033[H\033[2J");
     }
     public void ListarCofres() {
         if (cofres.isEmpty()) {

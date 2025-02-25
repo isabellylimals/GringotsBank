@@ -9,7 +9,7 @@ public class Menu {
         String escolha;
 
         do {
-           // System.out.print("\033[H\033[2J");
+           
             System.out.flush();
             System.out.println("=======================================");
             System.out.println("Bem-vindo ao Sistema do Banco Gringotes");
@@ -76,7 +76,7 @@ public class Menu {
 
                     Cofre cofre = new Cofre(nomebruxo, numerocofre, saldo);
                     banco.Criarcofre(cofre);
-                    System.out.println("Cofre adicionado com sucesso!");
+                   
                     break;
                 case "2":
                     System.out.println("Listar cofres selecionado.");
