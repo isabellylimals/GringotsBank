@@ -32,6 +32,8 @@ class BancoGringotes{
     public Cofre buscarCofre(int numerobuscar) {
         for (Cofre cofre : cofres) {
             if (cofre.getNumeroCofre() == numerobuscar) {
+                System.out.println("Nome do bruxo: " + cofre.getNomeBruxo() +
+                "\nNúmero do cofre:" + cofre.getNumeroCofre() + "\nSaldo disponível:" + cofre.getSaldo());
                 return cofre; 
             }
         }
