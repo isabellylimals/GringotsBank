@@ -21,12 +21,13 @@ public class Menu {
             System.out.println("[5] Realizar deposito");
             System.out.println("[6] Realizar transação entre cofres");
             System.out.println("[7] Listar transações");
-            System.out.println("[8] Sair do sistema");
+            System.out.println("[8] Remover cofre do sistema");
+            System.out.println("[9] Sair do sistema");
             System.out.println("=======================================");
             System.out.print("Escolha uma das opções: ");
             escolha = sc.nextLine();
 
-            if (!escolha.matches("[1-8]")) {
+            if (!escolha.matches("[1-9]")) {
                 System.out.println("Opção inválida. Tente novamente.");
                 continue;
             }
@@ -133,10 +134,17 @@ public class Menu {
                     banco.listarTransacoes();
                     break;
                 case "8":
-                    System.out.println("Saindo do sistema...");
+                     System.out.println("Remover cofre selecionado.");
+                     System.out.print("Digite o número do cofre que deseja remover:");
+                     int numRemover= sc.nextInt();
+                     banco.removercofre(numRemover);
                     break;
+                case "9":
+                System.out.println("Saindo do sistema...");
+
+                break;
             }
-        } while (!escolha.equals("8"));
+        } while (!escolha.equals("9"));
 
         sc.close();
     }}

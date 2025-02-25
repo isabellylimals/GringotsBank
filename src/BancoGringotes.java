@@ -36,6 +36,17 @@ class BancoGringotes{
         }
         return null; 
     }
+    public void removercofre(int numeroRemover) {
+        Cofre cofreRemover = buscarCofre(numeroRemover);
+        if (cofreRemover != null) {
+            cofres.remove(cofreRemover);
+            System.out.println("Cofre removido com sucesso!");
+        } else {
+            System.out.println("Cofre não encontrado.");
+        }
+    }
+        
+    
 
     
     public void Transferir() {
